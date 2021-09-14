@@ -1,0 +1,44 @@
+/**
+ * Mouse 2D. 
+ * 
+ * Moving the mouse changes the position and size of each box. 
+ */
+ int hue = 0;
+ int previousmouseX;
+ int previousmouseY;
+ 
+void setup() {
+  colorMode(HSB, 360, 100, 100);
+  size(640, 360); 
+  noStroke();
+  background(0);
+  //noSmooth();
+  
+  previousmouseX = mouseX;
+  previousmouseY = mouseY;
+  
+}
+
+void draw() {
+
+    for (int i = 0; i < 1; i++) {
+      int color1 = (hue+i) % 360;
+      
+      //strokeWeight(3);
+      //stroke(color1, 100, 100);
+      fill(color1, 100, 100);
+      ellipse(mouseX, mouseY, 20, 20);
+  
+      
+  
+  }
+  
+    noStroke();
+    fill(0,100,0,2);
+    rect(0, 0, width, height);
+  if (mouseX != previousmouseX || mouseY != previousmouseY){
+    hue += 1;
+  }
+    previousmouseX = mouseX;
+    previousmouseY = mouseY;
+}
